@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-
+#Autores: Norbey Marin Moreno, Julián Mauricio Flórez
 
 def tomarPunto(idImg, image_draw, colorPunto):
     points = []
@@ -47,9 +47,7 @@ while True:
     imgMaskArea = cv2.bitwise_and(frame, frame, mask=imgMask)# muestra sobre la imagen principal solo lo que esta en la mascara
 
     mask = obj_detec.apply(imgMaskArea) #aplica el sustractor de fondo sobre la imagen mascara
-    #mask = cv2.morphologyEx(mask, cv2.MORPH_ELLIPSE, kernel)
-    #mask = cv2.dilate(mask, None, iterations=2)
-    #_, mask = cv2.threshold(mask, 254, 255, cv2.THRESH_BINARY)#ayuda a eliminar sombras
+
 
     contornos, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)#encuentra los contornos
     for cont in contornos:
